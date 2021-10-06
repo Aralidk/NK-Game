@@ -3,172 +3,111 @@ import 'oyunEkrani.dart';
 import 'İnsaatWidgetlari.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'fonksiyonlar.dart';
 
-
-void main() {
-  runApp(insaat());
+class Insaat extends StatefulWidget {
+  @override
+  _InsaatState createState() => _InsaatState();
 }
 
-class insaat extends StatefulWidget {
-  @override
-  _insaatState createState() => _insaatState();
-}
+class _InsaatState extends State<Insaat> {
+  List yapilar = [
+    "atolye",
+    "hastane",
+    "kisla",
+    "liman",
+    "manastir",
+    "tapinak",
+    "ciftlik",
+  ];
 
-class _insaatState extends State<insaat> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            width: 325,
-            height: 600,
-            color: Color(0x476E87CB),
+  showYapiAlert(String yapi) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          content: Container(
+            height: 200,
             child: RotatedBox(
               quarterTurns: 5,
-                child: Row(
-                  children: [
-                    geriButonu(oyunEkrani()),
-                    Expanded(
-                      child: Wrap(children: [
-                        insaatAlertKisla(),
-                        insaatAlertAtolye(),
-                        insaatAlertCiftlik(),
-                        insaatAlertTapinak(),
-                        insaatAlertHastane(),
-                        insaatAlertOkul(),
-                        insaatAlertLiman(),
-
-                      ]),
-                    ),
-                  ],
-                ),
+              child: Column(
+                children: [
+                  Text(yapi + "inşaa edecekseniz emin misiniz ?"),
+                  Row(
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text("Hayır"),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text("Evet"),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-        ],
-      );
+          ),
+        );
+      },
+    );
   }
-}
 
-class insaatAlertKisla extends StatefulWidget {
-  @override
-  _insaatAlertKisla createState() => _insaatAlertKisla();
-}
-
-class _insaatAlertKisla extends State<insaatAlertKisla> {
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      resimKutulari(
-        resim: "assets/kisla.png",
+    return Scaffold(
+      backgroundColor: Color(0),
+      body: Center(
+        child: Container(
+          width: 325,
+          height: 600,
+          color: Color(0x476E87CB),
+          child: RotatedBox(
+            quarterTurns: 5,
+            child: Row(
+              children: [
+                GeriButonu(OyunEkrani()),
+                Expanded(
+                  child: Wrap(
+                    children: [
+                      for (String yapi in yapilar)
+                        Column(
+                          children: [
+                            Text(
+                              yapi,
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                showYapiAlert(yapi);
+                              },
+                              child: Container(
+                                width: 100,
+                                height: 100,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage("assets/$yapi.png"),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
-      textButonu("Kısla", "dasdasdasdas"),
-    ]);
-  }
-}
-
-class insaatAlertAtolye extends StatefulWidget {
-  @override
-  _insaatAlertAtolyeState createState() => _insaatAlertAtolyeState();
-}
-
-class _insaatAlertAtolyeState extends State<insaatAlertAtolye> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(children: [
-      resimKutulari(
-        resim: "assets/atolye.png",
-      ),
-      textButonu("Atolye", "sdasdasdasdas",),
-    ]);
-  }
-}
-
-class insaatAlertCiftlik extends StatefulWidget {
-  @override
-  _insaatAlertCiftlikState createState() => _insaatAlertCiftlikState();
-}
-
-class _insaatAlertCiftlikState extends State<insaatAlertCiftlik> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(children: [
-
-      resimKutulari(
-        resim: "assets/ciftlik.png",
-      ),
-      textButonu("Çiftlik", "sdasdasdasdas"),
-    ]);
-  }
-}
-
-class insaatAlertTapinak extends StatefulWidget {
-  @override
-  _insaatAlertTapinakState createState() => _insaatAlertTapinakState();
-}
-
-class _insaatAlertTapinakState extends State<insaatAlertTapinak> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(children: [
-      resimKutulari(
-        resim: "assets/tapinak.png",
-      ),
-      textButonu("Tapinak", "sdasdasdasdas"),
-    ]);
-  }
-}
-
-class insaatAlertHastane extends StatefulWidget {
-  @override
-  _insaatAlertHastaneState createState() => _insaatAlertHastaneState();
-}
-
-class _insaatAlertHastaneState extends State<insaatAlertHastane> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(children: [
-      resimKutulari(
-        resim: "assets/hastane.png",
-      ),
-      textButonu("Hastane", "sdasdasdasdas"),
-    ]);
-  }
-}
-
-class insaatAlertOkul extends StatefulWidget {
-  const insaatAlertOkul({Key? key}) : super(key: key);
-
-  @override
-  _insaatAlertOkulState createState() => _insaatAlertOkulState();
-}
-
-class _insaatAlertOkulState extends State<insaatAlertOkul> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(children: [
-      resimKutulari(
-        resim: "assets/okul.png",
-      ),
-      textButonu("Okul", "sdasdasdasdas"),
-    ]);
-  }
-}
-
-class insaatAlertLiman extends StatefulWidget {
-  @override
-  _insaatAlertLimanState createState() => _insaatAlertLimanState();
-}
-
-class _insaatAlertLimanState extends State<insaatAlertLiman> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(children: [
-      resimKutulari(
-        resim: "assets/liman.png",
-      ),
-      textButonu("Liman", "sdasdasdasdas"),
-    ]);
+    );
   }
 }

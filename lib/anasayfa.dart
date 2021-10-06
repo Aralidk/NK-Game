@@ -9,7 +9,7 @@ import 'ayarlar.dart';
 import 'fonksiyonlar.dart';
 
 
-class anasayfa extends StatelessWidget {
+class AnaSayfa extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (Platform.isAndroid)
@@ -29,12 +29,12 @@ class anasayfa extends StatelessWidget {
             image: AssetImage('assets/anasayfa.png'),
             fit: BoxFit.cover,
           )),
-      child: ustKutu(),
+      child: UstKutu(),
     );
   }
 }
 
-class ustKutu extends StatelessWidget {
+class UstKutu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -42,7 +42,7 @@ class ustKutu extends StatelessWidget {
         Container(
           padding: EdgeInsets.only(top: 540),
           child: butonlar(
-            sayfalar: oyunEkrani(),
+            sayfalar: OyunEkrani(),
           ),
         ),
         Row(

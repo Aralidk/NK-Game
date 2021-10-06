@@ -4,31 +4,16 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'fonksiyonlar.dart';
 import 'package:flutter/material.dart';
 
-
-
-
-class textButonu extends StatelessWidget {
-  int school = 0;
-  final Box dataBox = Hive.box("data");
-  final Box settingsBox = Hive.box("settings");
-
+class TextButonu extends StatelessWidget {
   final altYazi;
   final aciklama;
-  textButonu(this.aciklama,this.altYazi);
-
-  get money => HomePage();
-  get box => HomePage();
-  buildSchool() {
-    if (money >= 1000000) {
-      school = dataBox.get("schoolNum") + 1;
-      dataBox.put("schoolNum", school);
-    } else {
-      Fluttertoast.showToast(msg: "Yeterli paranız yok");
-    }
-  }
+  const TextButonu(this.aciklama, this.altYazi);
 
   @override
   Widget build(BuildContext context) {
+    int school = 0;
+    final Box dataBox = Hive.box("data");
+    final Box settingsBox = Hive.box("settings");
     return TextButton(
       onPressed: () => showDialog<String>(
         context: context,
@@ -42,18 +27,17 @@ class textButonu extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 school = school + 1;
-                box.put("schoolNum", school);
               },
               child: Icon(Icons.add),
             ),
           ]),
         ),
       ),
-      child: Text(altYazi,
+      child: Text(
+        altYazi,
         style: TextStyle(
           color: Color(0xFFC21616),
         ),
-
       ),
     );
   }
@@ -71,27 +55,22 @@ class resimKutulari extends StatelessWidget {
   }
 }
 
-class geriButonu extends StatelessWidget {
+class GeriButonu extends StatelessWidget {
   final geriButonuAdresi;
-  geriButonu(this.geriButonuAdresi);
+  GeriButonu(this.geriButonuAdresi);
   @override
   Widget build(BuildContext context) {
     return Material(
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10)
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       color: Color(0x476E87CB),
-      child: IconButton(onPressed:(){
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => geriButonuAdresi));
-      },
+      child: IconButton(
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => geriButonuAdresi));
+        },
         alignment: Alignment.center,
-        icon: Icon(Icons.exit_to_app_outlined), color: Colors.red,
+        icon: Icon(Icons.exit_to_app_outlined),
+        color: Colors.red,
       ),
     );
   }
 }
-
-
-
-

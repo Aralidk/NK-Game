@@ -26,7 +26,7 @@ class _sirketlerState extends State<sirketler> {
             quarterTurns: 5,
             child: Row(
               children: [
-                geriButonu(oyunEkrani()),
+                GeriButonu(OyunEkrani()),
                 Expanded(
                   child: Wrap(children: [
                     yiyecekSirket(),
@@ -58,7 +58,7 @@ class _yiyecekSirket extends State<yiyecekSirket> {
       resimKutulari(
         resim: "assets/yiyecek_icecek_sirketi.png",
       ),
-      textButonu("Yiyecek İçecek Şirketi", "dasdasdasdas"),
+      TextButonu("Yiyecek İçecek Şirketi", "dasdasdasdas"),
     ]);
   }
 }
@@ -76,7 +76,7 @@ class _kumasSirketi extends State<kumasSirketi> {
       resimKutulari(
         resim: "assets/kumas_sirketi.png",
       ),
-      textButonu("Kumaş Şirketi", "dasdasdasdas"),
+      TextButonu("Kumaş Şirketi", "dasdasdasdas"),
     ]);
   }
 }
@@ -93,7 +93,7 @@ class _ilacSirketi extends State<ilacSirketi> {
       resimKutulari(
         resim: "assets/ilac_sirketi.png",
       ),
-      textButonu("İlaç Şirketi", "dasdasdasdas"),
+      TextButonu("İlaç Şirketi", "dasdasdasdas"),
     ]);
   }
 }
