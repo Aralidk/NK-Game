@@ -1,67 +1,37 @@
 import 'dart:ui';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:hive/hive.dart';
+import 'package:nkmanagetheworld/controller/yapi_controller.dart';
+
 import 'oyunEkrani.dart';
 import 'İnsaatWidgetlari.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Insaat extends StatefulWidget {
-  @override
-  _InsaatState createState() => _InsaatState();
-}
-
-class _InsaatState extends State<Insaat> {
-  List yapilar = [
-    "atolye",
-    "hastane",
-    "kisla",
-    "liman",
-    "manastir",
-    "tapinak",
-    "ciftlik",
-  ];
-
-  showYapiAlert(String yapi) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          content: Container(
-            height: 200,
-            child: RotatedBox(
-              quarterTurns: 5,
-              child: Column(
-                children: [
-                  Text(yapi + "inşaa edecekseniz emin misiniz ?"),
-                  Row(
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: Text("Hayır"),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: Text("Evet"),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-        );
-      },
-    );
-  }
+class Insaat extends StatelessWidget {
+  final String nerden;
+  const Insaat({Key? key, required this.nerden}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    late List yapilar;
+    nerden == "yapi"
+        ? yapilar = [
+            {"atolye": "Atolye"},
+            {"hastane": "Hastane"},
+            {"kisla": "Kışla"},
+            {"liman": "Liman"},
+            {"manastir": "Manastır"},
+            {"tapinak": "Tapınak"},
+            {"ciftlik": "Çiftlik"},
+          ]
+        : yapilar = [
+            {"ilac_sirketi": "İlaç Şirketi"},
+            {"kumas_sirketi": "Kumaş Şirketi"},
+            {"gida_sirketi": "Yiyecek İçecek Şirketi"}
+          ];
+    final yapiCntrl = YapiController();
+    print(yapilar.length);
     return Scaffold(
       backgroundColor: Color(0),
       body: Center(
@@ -77,23 +47,23 @@ class _InsaatState extends State<Insaat> {
                 Expanded(
                   child: Wrap(
                     children: [
-                      for (String yapi in yapilar)
+                      for (Map yapi in yapilar)
                         Column(
                           children: [
                             Text(
-                              yapi,
+                              yapi.values.first,
                               style: TextStyle(color: Colors.white),
                             ),
                             InkWell(
                               onTap: () {
-                                showYapiAlert(yapi);
+                                yapiCntrl.showYapiAlert(yapi, context);
                               },
                               child: Container(
                                 width: 100,
                                 height: 100,
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
-                                    image: AssetImage("assets/$yapi.png"),
+                                    image: AssetImage("assets/${yapi.keys.first}.png"),
                                   ),
                                 ),
                               ),
