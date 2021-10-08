@@ -1,6 +1,4 @@
 import 'dart:ui';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:hive/hive.dart';
 import 'package:nkmanagetheworld/controller/yapi_controller.dart';
 
 import 'oyunEkrani.dart';
@@ -26,9 +24,9 @@ class Insaat extends StatelessWidget {
             {"ciftlik": "Çiftlik"},
           ]
         : yapilar = [
-            {"ilac_sirketi": "İlaç Şirketi"},
-            {"kumas_sirketi": "Kumaş Şirketi"},
-            {"gida_sirketi": "Yiyecek İçecek Şirketi"}
+            {"ilac_sirket": "İlaç Şirketi"},
+            {"kumas_sirket": "Kumaş Şirketi"},
+            {"gida_sirket": "Yiyecek İçecek Şirketi"}
           ];
     final yapiCntrl = YapiController();
     print(yapilar.length);
