@@ -3,10 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:nkmanagetheworld/fonksiyonlar.dart';
 import 'oyunEkrani.dart';
 import 'ayarlar.dart';
-import 'fonksiyonlar.dart';
 
 
 class AnaSayfa extends StatelessWidget {
@@ -37,62 +35,41 @@ class AnaSayfa extends StatelessWidget {
 class UstKutu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Container(
-          padding: EdgeInsets.only(top: 540),
-          child: butonlar(
-            sayfalar: OyunEkrani(),
-          ),
-        ),
+    return
         Row(
           children: [
-            butonkutusu(
+            Expanded(child: butonlar(sayfalar: ayarlar(), anaSayfaButon:"assets/2.png")),
+            Expanded(
               child: butonlar(
-                sayfalar: HomePage(),
-              ),
-            ),
-            butonkutusu(
+                anaSayfaButon: "assets/1.png",
+                sayfalar: OyunEkrani(),),),
+            Expanded(
               child: butonlar(
+                anaSayfaButon: "assets/3.png",
                 sayfalar: ayarlar(),
               ),
             )
           ],
-        ),
-      ],
-    );
-  }
-}
-
-class butonkutusu extends StatelessWidget {
-  final child;
-  butonkutusu({this.child});
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-        child: Container(
-          alignment: Alignment(-0.2, 1.2),
-          height: 70,
-          child: child,
-        ));
+        );
   }
 }
 
 class butonlar extends StatelessWidget {
   final sayfalar;
-  butonlar({required this.sayfalar});
+  final anaSayfaButon;
+  butonlar({required this.sayfalar, required this.anaSayfaButon});
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
-      shape: RoundedRectangleBorder(
-        borderRadius: new BorderRadius.circular(30.0),
-      ),
-      color: Colors.transparent,
-      onPressed: () {
-
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => sayfalar));
-      },
+    return GestureDetector(
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(anaSayfaButon,),
+            ),
+          ),),
+        onTap:(){
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => sayfalar));}
     );
   }
 }

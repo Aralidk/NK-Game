@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:ui';
+import 'package:flutter/cupertino.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_listener/hive_listener.dart';
@@ -19,14 +20,17 @@ class OyunEkrani extends StatelessWidget {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitDown,
     ]);
+    final screenSize = MediaQuery.of(context).size;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Harita(),
+      home: Harita(screenSize),
     );
   }
 }
 
 class Harita extends StatefulWidget {
+  Harita(Size screenSize);
+
   @override
   State<Harita> createState() => _HaritaState();
 }
@@ -63,12 +67,15 @@ class _HaritaState extends State<Harita> {
       nufus = nufus + (nufus * degisimOran).toInt();
       dataBox.put("nufus", nufus);
     }
-    if (dataBox.get("manastir")["adet"] < 1450) isyanci = isyanci + nufus ~/ 100;
+    if (dataBox.get("manastir")["adet"] < 1450)
+      isyanci = isyanci + nufus ~/ 100;
   }
 
   monthlyChanges() {
-    double satinAlimlar =
-        (dataBox.get("ilac_alim") + dataBox.get("kumas_alim") + dataBox.get("yiyecek_alim")) * dataBox.get("nufus");
+    double satinAlimlar = (dataBox.get("ilac_alim") +
+            dataBox.get("kumas_alim") +
+            dataBox.get("yiyecek_alim")) *
+        dataBox.get("nufus");
     List yapilar = [
       "atolye",
       "hastane",
@@ -152,7 +159,7 @@ class _HaritaState extends State<Harita> {
             return Row(
               children: [
                 Expanded(
-                  flex: 3,
+                  flex: 1,
                   child: Container(
                     color: Color(0x476E87CB),
                     child: RotatedBox(
@@ -166,17 +173,22 @@ class _HaritaState extends State<Harita> {
                             children: [
                               AltButton(
                                 text: 'Nüfus',
+                                altButonSayfa: AnaSayfa(),
                               ),
                               AltButton(
-                                text: 'Asker Sayısı',
+                                altButonSayfa: AnaSayfa(),
+                                text: 'Asker',
                               ),
                               AltButton(
-                                text: 'Muhafız Sayısı',
+                                altButonSayfa: AnaSayfa(),
+                                text: 'Muhafız',
                               ),
                               AltButton(
-                                text: 'İsyancı Sayısı',
+                                altButonSayfa: AnaSayfa(),
+                                text: 'İsyancı',
                               ),
                               AltButton(
+                                altButonSayfa: AnaSayfa(),
                                 text: 'Kasa',
                               ),
                               GeriButonu(
@@ -192,83 +204,99 @@ class _HaritaState extends State<Harita> {
                 Expanded(
                   flex: 3,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
                         child: Image.asset(
-                          "assets/yeni_harita.png",
+                          "assets/harita.png",
                         ),
                       ),
-                      Column(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(8),
-                            child: Text(
-                              "Nüfus: " + box.get("nufus").toString(),
+                      /*RotatedBox(quarterTurns: 5,
+                        child: Column(
+                          children: [
+                            /*Container(
+                              child: Text(
+                                "Nüfus: " + box.get("nufus").toString(),
+                                style: TextStyle(color: Colors.white, fontSize: 20),
+                              ),
+                            ),*/
+                            /*Text(
+                              dataBox.get("para").toString(),
                               style: TextStyle(color: Colors.white, fontSize: 20),
-                            ),
-                          ),
-                          StreamBuilder(
-                            stream: dateStream,
-                            builder: (context, snaphot) {
-                              return Container(
-                                child: Text(
-                                  "Day : " + DateFormat('yMd').format(box.get("date")),
-                                  style: TextStyle(color: Colors.white, fontSize: 20),
-                                ),
-                              );
-                            },
-                          ),
-                          Text(
-                            dataBox.get("para").toString(),
-                            style: TextStyle(color: Colors.white, fontSize: 20),
-                          ),
-                        ],
-                      ),
-                      Container(
-                        padding: EdgeInsets.all(15),
-                        width: 277,
-                        height: 225,
-                        color: Color(0x476E87CB),
-                        child: RotatedBox(
-                          quarterTurns: 5,
-                          child: Wrap(
-                            runSpacing: 3,
-                            alignment: WrapAlignment.spaceBetween,
-                            children: [
-                              zamanButon(
-                                Icon(Icons.pause_circle_outline),
-                              ),
-                              zamanButon(
-                                Icon(Icons.play_circle_outline_outlined),
-                              ),
-                              zamanButon(
-                                Icon(Icons.reply_all_outlined),
-                              ),
-                              YanButton(
-                                sayfaCagirma: Insaat(nerden: 'yapi',),
-                                sayfaIsmi: 'İnsaat',
-                              ),
-                              YanButton(
-                                sayfaCagirma: Insaat(nerden: 'sirket',),
-                                sayfaIsmi: 'Mağaza',
-                              ),
-                              YanButton(
-                                sayfaCagirma:Insaat(nerden: 'sirket',),
-                                sayfaIsmi: 'Şirketler',
-                              ),
-                              YanButton(
-                                sayfaCagirma: AnaSayfa(),
-                                sayfaIsmi: 'Sıralamalar',
-                              ),
-                              YanButton(
-                                sayfaCagirma: AnaSayfa(),
-                                sayfaIsmi: 'Vergi',
-                              ),
-                              YanButton(
-                                sayfaCagirma: AnaSayfa(),
-                                sayfaIsmi: 'Etkiler',
-                              ),
-                            ],
+                            ),*/
+                          ],
+                        ),
+                      ),*/
+                      Expanded(
+                        child: Container(
+
+                          padding: EdgeInsets.only(top: 5, right: 5),
+                          color: Color(0x476E87CB),
+                          child: RotatedBox(
+                            quarterTurns: 5,
+                            child: Wrap(
+                              runSpacing: 5,
+                                spacing: 10,
+                                children: [
+                                  StreamBuilder(
+                                    stream: dateStream,
+                                    builder: (context, snaphot) {
+                                      return Text(
+                                        "Day : " +
+                                            DateFormat('yMd')
+                                                .format(box.get("date")),
+                                        textAlign: TextAlign.end,
+                                        style: TextStyle(
+                                            color: Color(0xFFC21616),
+                                            fontSize: 20),
+                                      );
+                                    },
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      zamanButon(
+                                        Icon(Icons.pause_circle_outline),
+                                      ),
+                                  zamanButon(
+                                    Icon(Icons.play_circle_outline_outlined),
+                                  ),
+                                  zamanButon(
+                                    Icon(Icons.reply_all_outlined),
+                                  ),
+                                  ]),
+                                  YanButton(
+                                    sayfaCagirma: Insaat(
+                                      nerden: 'yapi',
+                                    ),
+                                    sayfaIsmi: 'İnsaat',
+                                  ),
+                                  YanButton(
+                                    sayfaCagirma: Insaat(
+                                      nerden: 'sirket',
+                                    ),
+                                    sayfaIsmi: 'Mağaza',
+                                  ),
+                                  YanButton(
+                                    sayfaCagirma: Insaat(
+                                      nerden: 'sirket',
+                                    ),
+                                    sayfaIsmi: 'Şirketler',
+                                  ),
+                                  YanButton(
+                                    sayfaCagirma: AnaSayfa(),
+                                    sayfaIsmi: 'Sıralamalar',
+                                  ),
+                                  YanButton(
+                                    sayfaCagirma: AnaSayfa(),
+                                    sayfaIsmi: 'Vergi',
+                                  ),
+                                  YanButton(
+                                    sayfaCagirma: AnaSayfa(),
+                                    sayfaIsmi: 'Etkiler',
+                                  ),
+                                ]),
                           ),
                         ),
                       ),
@@ -284,28 +312,28 @@ class _HaritaState extends State<Harita> {
 
 class AltButton extends StatelessWidget {
   final text;
-  AltButton({required this.text});
+  final altButonSayfa;
+  AltButton({required this.text,required this.altButonSayfa});
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ButtonStyle(
-        shape: MaterialStateProperty.all(
-          RoundedRectangleBorder(
-            borderRadius: new BorderRadius.circular(30.0),
-          ),
-        ),
-        backgroundColor: MaterialStateProperty.all(
-          Color(0xFFC21616),
-        ),
-        foregroundColor: MaterialStateProperty.all(
-          const Color(0xFF000000),
+    return GestureDetector(
+        child:Container(
+      alignment: Alignment.center,
+      width: 110,
+      height: 55,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image:AssetImage("assets/buton.png",),
         ),
       ),
-      onPressed: () {},
-      child: Text(
-        text,
-        style: TextStyle(fontSize: 16),
-      ),
+      child: Text(text,
+          style: TextStyle(fontSize: 15,
+              fontWeight: FontWeight.bold
+          )),
+    ),
+    onTap:(){
+    Navigator.push(
+    context, MaterialPageRoute(builder: (context) => altButonSayfa));}
     );
   }
 }
@@ -316,21 +344,25 @@ class YanButton extends StatelessWidget {
   YanButton({required this.sayfaCagirma, required this.sayfaIsmi});
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Color(0xFFC21616)),
-          foregroundColor: MaterialStateProperty.all(
-            const Color(0xFF000000),
+    return GestureDetector(
+        child: Container(
+          alignment: Alignment.center,
+          width: 110,
+          height: 55,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image:AssetImage("assets/buton.png",),
+              ),
           ),
-          shape: MaterialStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: new BorderRadius.circular(30.0),
-            ),
+            child: Text(sayfaIsmi,
+                style: TextStyle(fontSize: 15,
+                  fontWeight: FontWeight.bold
+            )),
           ),
-        ),
-        child: Text(sayfaIsmi, style: TextStyle(fontSize: 16)),
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => sayfaCagirma));
-        });
+        onTap:(){
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => sayfaCagirma));}
+    );
   }
 }
+

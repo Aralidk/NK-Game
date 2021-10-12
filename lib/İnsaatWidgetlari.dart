@@ -1,7 +1,6 @@
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'fonksiyonlar.dart';
 import 'package:flutter/material.dart';
 
 class TextButonu extends StatelessWidget {
@@ -60,17 +59,13 @@ class GeriButonu extends StatelessWidget {
   GeriButonu(this.geriButonuAdresi);
   @override
   Widget build(BuildContext context) {
-    return Material(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      color: Color(0x476E87CB),
-      child: IconButton(
+    return IconButton(
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) => geriButonuAdresi));
         },
         alignment: Alignment.center,
         icon: Icon(Icons.exit_to_app_outlined),
         color: Colors.red,
-      ),
-    );
+      );
   }
 }
