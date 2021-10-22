@@ -1,18 +1,19 @@
 import 'dart:async';
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_listener/hive_listener.dart';
 import 'package:intl/intl.dart';
 import 'package:nkmanagetheworld/controller/yapi_controller.dart';
-import 'zamanButonWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
 import 'anasayfa.dart';
 import 'insaat.dart';
-import 'İnsaatWidgetlari.dart';
+import 'Widgetlar.dart';
+import 'sıralama.dart';
 
 class OyunEkrani extends StatelessWidget {
   @override
@@ -165,39 +166,44 @@ class _HaritaState extends State<Harita> {
                     child: RotatedBox(
                       quarterTurns: 5,
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          SizedBox(height: 20),
-                          Wrap(
-                            alignment: WrapAlignment.spaceBetween,
-                            children: [
-                              AltButton(
-                                text: 'Nüfus',
-                                altButonSayfa: AnaSayfa(),
-                              ),
-                              AltButton(
-                                altButonSayfa: AnaSayfa(),
-                                text: 'Asker',
-                              ),
-                              AltButton(
-                                altButonSayfa: AnaSayfa(),
-                                text: 'Muhafız',
-                              ),
-                              AltButton(
-                                altButonSayfa: AnaSayfa(),
-                                text: 'İsyancı',
-                              ),
-                              AltButton(
-                                altButonSayfa: AnaSayfa(),
-                                text: 'Kasa',
-                              ),
-                              GeriButonu(
-                                AnaSayfa(),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            SizedBox(height: 20),
+                            Wrap(
+                              alignment: WrapAlignment.spaceBetween,
+                              children: [
+                                AltAciklama(
+                                  aciklanan:
+                                      "Nüfus: " + box.get("nufus").toString(),
+                                ),
+                                AltAciklama(
+                                  aciklanan:
+                                      "Kasa: " + dataBox.get("para").toString(),
+                                ),
+                                AltAciklama(
+                                  aciklanan: "Asker: " +
+                                      box.get("aktif_sipahi").toString(),
+                                ),
+                                AltAciklama(
+                                  aciklanan: "Muhafız: " +
+                                      box.get("aktif_sovalye").toString(),
+                                ),
+                                AltAciklama(
+                                  aciklanan: "İsyancı: " +
+                                      box.get("isyanci").toString(),
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    askerAlimButonu(),
+                                    GeriButonu(
+                                      AnaSayfa(),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ]),
                     ),
                   ),
                 ),
@@ -212,60 +218,47 @@ class _HaritaState extends State<Harita> {
                           "assets/harita.png",
                         ),
                       ),
-                      /*RotatedBox(quarterTurns: 5,
-                        child: Column(
-                          children: [
-                            /*Container(
-                              child: Text(
-                                "Nüfus: " + box.get("nufus").toString(),
-                                style: TextStyle(color: Colors.white, fontSize: 20),
-                              ),
-                            ),*/
-                            /*Text(
-                              dataBox.get("para").toString(),
-                              style: TextStyle(color: Colors.white, fontSize: 20),
-                            ),*/
-                          ],
-                        ),
-                      ),*/
                       Expanded(
                         child: Container(
-
                           padding: EdgeInsets.only(top: 5, right: 5),
                           color: Color(0x476E87CB),
                           child: RotatedBox(
                             quarterTurns: 5,
                             child: Wrap(
-                              runSpacing: 5,
+                                alignment: WrapAlignment.center,
+                                runSpacing: 5,
                                 spacing: 10,
                                 children: [
-                                  StreamBuilder(
-                                    stream: dateStream,
-                                    builder: (context, snaphot) {
-                                      return Text(
-                                        "Day : " +
-                                            DateFormat('yMd')
-                                                .format(box.get("date")),
-                                        textAlign: TextAlign.end,
-                                        style: TextStyle(
-                                            color: Color(0xFFC21616),
-                                            fontSize: 20),
-                                      );
-                                    },
+                                  Container(
+                                    child: StreamBuilder(
+                                      stream: dateStream,
+                                      builder: (context, snaphot) {
+                                        return Text(
+                                          "Day : " +
+                                              DateFormat('yMd')
+                                                  .format(box.get("date")),
+                                          style: TextStyle(
+                                              color: Color(0xFFC21616),
+                                              fontSize: 20),
+                                        );
+                                      },
+                                    ),
                                   ),
                                   Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      zamanButon(
-                                        Icon(Icons.pause_circle_outline),
-                                      ),
-                                  zamanButon(
-                                    Icon(Icons.play_circle_outline_outlined),
-                                  ),
-                                  zamanButon(
-                                    Icon(Icons.reply_all_outlined),
-                                  ),
-                                  ]),
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        zamanButon(
+                                          Icon(Icons.pause_circle_outline),
+                                        ),
+                                        zamanButon(
+                                          Icon(Icons
+                                              .play_circle_outline_outlined),
+                                        ),
+                                        zamanButon(
+                                          Icon(Icons.reply_all_outlined),
+                                        ),
+                                      ]),
                                   YanButton(
                                     sayfaCagirma: Insaat(
                                       nerden: 'yapi',
@@ -285,7 +278,7 @@ class _HaritaState extends State<Harita> {
                                     sayfaIsmi: 'Şirketler',
                                   ),
                                   YanButton(
-                                    sayfaCagirma: AnaSayfa(),
+                                    sayfaCagirma: Siralama(),
                                     sayfaIsmi: 'Sıralamalar',
                                   ),
                                   YanButton(
@@ -310,34 +303,6 @@ class _HaritaState extends State<Harita> {
   }
 }
 
-class AltButton extends StatelessWidget {
-  final text;
-  final altButonSayfa;
-  AltButton({required this.text,required this.altButonSayfa});
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-        child:Container(
-      alignment: Alignment.center,
-      width: 110,
-      height: 55,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image:AssetImage("assets/buton.png",),
-        ),
-      ),
-      child: Text(text,
-          style: TextStyle(fontSize: 15,
-              fontWeight: FontWeight.bold
-          )),
-    ),
-    onTap:(){
-    Navigator.push(
-    context, MaterialPageRoute(builder: (context) => altButonSayfa));}
-    );
-  }
-}
-
 class YanButton extends StatelessWidget {
   final sayfaCagirma;
   final sayfaIsmi;
@@ -351,18 +316,39 @@ class YanButton extends StatelessWidget {
           height: 55,
           decoration: BoxDecoration(
             image: DecorationImage(
-                image:AssetImage("assets/buton.png",),
+              image: AssetImage(
+                "assets/buton.png",
               ),
+            ),
           ),
-            child: Text(sayfaIsmi,
-                style: TextStyle(fontSize: 15,
-                  fontWeight: FontWeight.bold
-            )),
-          ),
-        onTap:(){
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => sayfaCagirma));}
-    );
+          child: Text(sayfaIsmi,
+
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold,)),
+        ),
+        onTap: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => sayfaCagirma));
+        });
   }
 }
 
+class AltAciklama extends StatelessWidget {
+  final aciklanan;
+  AltAciklama({this.aciklanan});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(5),
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage(
+            "assets/altbutonlar.png",
+          ),
+        ),
+      ),
+      child: Text(aciklanan,
+          style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+    );
+  }
+}

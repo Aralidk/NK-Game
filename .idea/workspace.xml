@@ -2,30 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="494affeb-fd1d-4434-98f9-405b71815502" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/buton.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/harita.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/play.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/altButonlar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/sıralama.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/NK-Game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/NK-Game.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/anasayfa.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/anasayfa.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tapinak.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tapinak.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/yeni_harita.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/anasayfa.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anasayfa.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/fonksiyonlar.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/functions.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/insaat.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/insaat.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/oyunEkrani.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/oyunEkrani.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/zamanButonWidget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/zamanButonWidget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/İnsaatWidgetlari.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/İnsaatWidgetlari.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/zamanButonWidget.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/İnsaatWidgetlari.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Widgetlar.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,6 +56,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Dilara\Desktop\Files\NK-Game\assets" />
       <recent name="C:\Users\Dilara\Desktop\GitHubGame\NK-Game\assets" />
     </key>
   </component>
