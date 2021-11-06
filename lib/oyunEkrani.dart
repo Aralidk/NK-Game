@@ -6,13 +6,12 @@ import 'package:hive/hive.dart';
 import 'package:hive_listener/hive_listener.dart';
 import 'package:intl/intl.dart';
 import 'package:nkmanagetheworld/controller/yapi_controller.dart';
-import 'zamanButonWidget.dart';
+import 'Widgetlar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
 import 'anasayfa.dart';
 import 'insaat.dart';
-import 'İnsaatWidgetlari.dart';
 
 class OyunEkrani extends StatelessWidget {
   @override

@@ -36,20 +36,25 @@ class UstKutu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return
-        Row(
-          children: [
-            Expanded(child: butonlar(sayfalar: ayarlar(), anaSayfaButon:"assets/2.png")),
-            Expanded(
-              child: butonlar(
-                anaSayfaButon: "assets/1.png",
-                sayfalar: OyunEkrani(),),),
-            Expanded(
-              child: butonlar(
-                anaSayfaButon: "assets/3.png",
-                sayfalar: ayarlar(),
-              ),
-            )
-          ],
+        Container(
+          margin: EdgeInsets.only(top: 550),
+          child: Row(
+            children: [
+              Expanded(child: butonlar(
+                  sayfalar: ayarlar(),
+                  anaSayfaButon:"assets/2.png")),
+              Expanded(
+                child: butonlar(
+                  anaSayfaButon: "assets/1.png",
+                  sayfalar: OyunEkrani(),),),
+              Expanded(
+                child: butonlar(
+                  anaSayfaButon: "assets/3.png",
+                  sayfalar: ayarlar(),
+                ),
+              )
+            ],
+          ),
         );
   }
 }

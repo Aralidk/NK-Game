@@ -1,4 +1,3 @@
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter/material.dart';
@@ -69,3 +68,38 @@ class GeriButonu extends StatelessWidget {
       );
   }
 }
+
+class zamanButon extends StatefulWidget {
+  Icon ikon;
+  zamanButon(this.ikon);
+  @override
+  _zamanButonState createState() => _zamanButonState();
+}
+
+class _zamanButonState extends State<zamanButon> {
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () {},
+      alignment: Alignment.center,
+      icon: widget.ikon,
+      color: Colors.red,
+    );
+  }
+}
+
+class askerAlimButonu extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return  IconButton(
+      onPressed: () {
+
+
+      },
+      alignment: Alignment.center,
+      icon: Icon(Icons.add_circle_outline),
+      color: Colors.red,
+    );
+  }
+}
+
