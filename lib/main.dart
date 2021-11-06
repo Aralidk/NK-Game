@@ -10,6 +10,7 @@ Future<void> main() async {
     "baslangic": DateTime.now(),
     "ayNoktasi": DateTime.now(),
     "yapiSayisi": 0,
+    "eski_para":5000000,
     "para": 5000000,
     "atolye": {"adet": 1, "maliyet": 3000000, "max": 400},
     "ciftlik": {"adet": 1, "maliyet": 6000000, "max": 400},

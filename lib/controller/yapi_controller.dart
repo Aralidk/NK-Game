@@ -139,30 +139,27 @@ class YapiController {
           ),
           content: Container(
             height: 200,
-            child: RotatedBox(
-              quarterTurns: 5,
-              child: Column(
-                children: [
-                  Text(yapi.values.first + "inşaa edecekseniz emin misiniz ?"),
-                  Row(
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: Text("Hayır"),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          yapiInsaEt(yapi);
-                          Navigator.pop(context);
-                        },
-                        child: Text("Evet"),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+            child: Column(
+              children: [
+                Text(yapi.values.first + "inşaa edecekseniz emin misiniz ?"),
+                Row(
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text("Hayır"),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        yapiInsaEt(yapi);
+                        Navigator.pop(context);
+                      },
+                      child: Text("Evet"),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         );
