@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="494affeb-fd1d-4434-98f9-405b71815502" name="Default Changelist" comment="Sıralamalar eklendi">
-      <change afterPath="$PROJECT_DIR$/lib/vergiler.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/vergiButon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/NK-Game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/NK-Game.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Widgetlar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Widgetlar.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/oyunEkrani.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/oyunEkrani.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/vergiler.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/vergiler.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +23,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -54,8 +54,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Dilara\Desktop\Files\NK-Game\lib" />
       <recent name="C:\Users\Dilara\Desktop\Files\NK-Game\assets" />
+      <recent name="C:\Users\Dilara\Desktop\Files\NK-Game\lib" />
       <recent name="C:\Users\Dilara\Desktop\GitHubGame\NK-Game\assets" />
     </key>
   </component>

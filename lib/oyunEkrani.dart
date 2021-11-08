@@ -10,6 +10,7 @@ import 'package:nkmanagetheworld/controller/yapi_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
+import 'package:nkmanagetheworld/vergiler.dart';
 import 'anasayfa.dart';
 import 'insaat.dart';
 import 'Widgetlar.dart';
@@ -238,7 +239,7 @@ class _HaritaState extends State<Harita> {
                                               DateFormat('yMd')
                                                   .format(box.get("date")),
                                           style: TextStyle(
-                                              color: Color(0xFFC21616),
+                                              color: Color(0xFFF3C195),
                                               fontSize: 20),
                                         );
                                       },
@@ -282,7 +283,7 @@ class _HaritaState extends State<Harita> {
                                     sayfaIsmi: 'Sıralamalar',
                                   ),
                                   YanButton(
-                                    sayfaCagirma: AnaSayfa(),
+                                    sayfaCagirma: vergiSistemi(),
                                     sayfaIsmi: 'Vergi',
                                   ),
                                   YanButton(
@@ -322,7 +323,6 @@ class YanButton extends StatelessWidget {
             ),
           ),
           child: Text(sayfaIsmi,
-
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold,)),
         ),
         onTap: () {
