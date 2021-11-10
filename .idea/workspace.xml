@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="494affeb-fd1d-4434-98f9-405b71815502" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/altButonlar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/sıralama.dart" afterDir="false" />
+    <list default="true" id="494affeb-fd1d-4434-98f9-405b71815502" name="Default Changelist" comment="Sıralamalar eklendi">
+      <change afterPath="$PROJECT_DIR$/assets/vergiButon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/anasayfa.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/anasayfa.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/functions.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/insaat.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/insaat.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/oyunEkrani.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/oyunEkrani.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/zamanButonWidget.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/İnsaatWidgetlari.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Widgetlar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/vergiler.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/vergiler.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +23,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -50,13 +45,17 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/nkmanagetheworld" />
-    <property name="settings.editor.selected.configurable" value="dart.settings" />
+    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/c_deneme" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Dilara\Desktop\Files\NK-Game\assets" />
+      <recent name="C:\Users\Dilara\Desktop\Files\NK-Game\lib" />
       <recent name="C:\Users\Dilara\Desktop\GitHubGame\NK-Game\assets" />
     </key>
   </component>
@@ -75,6 +74,14 @@
       <option name="presentableId" value="Default" />
       <updated>1633101530777</updated>
     </task>
+    <task id="LOCAL-00001" summary="Sıralamalar eklendi">
+      <created>1634931244024</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1634931244024</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -88,6 +95,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Sıralamalar eklendi" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sıralamalar eklendi" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

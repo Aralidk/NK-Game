@@ -34,7 +34,7 @@ class TextButonu extends StatelessWidget {
       child: Text(
         altYazi,
         style: TextStyle(
-          color: Color(0xFFC21616),
+          color: Color(0xFFF3C195),
         ),
       ),
     );
@@ -64,7 +64,7 @@ class GeriButonu extends StatelessWidget {
         },
         alignment: Alignment.center,
         icon: Icon(Icons.exit_to_app_outlined),
-        color: Colors.red,
+        color: Color(0xFFF3C195),
       );
   }
 }
@@ -83,7 +83,7 @@ class _zamanButonState extends State<zamanButon> {
       onPressed: () {},
       alignment: Alignment.center,
       icon: widget.ikon,
-      color: Colors.red,
+      color: Color(0xFFF3C195),
     );
   }
 }
@@ -92,13 +92,10 @@ class askerAlimButonu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  IconButton(
-      onPressed: () {
-
-
-      },
+      onPressed: () {},
       alignment: Alignment.center,
       icon: Icon(Icons.add_circle_outline),
-      color: Colors.red,
+      color: Color(0xFFF3C195),
     );
   }
 }
