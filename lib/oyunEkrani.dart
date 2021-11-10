@@ -69,15 +69,12 @@ class _HaritaState extends State<Harita> {
       nufus = nufus + (nufus * degisimOran).toInt();
       dataBox.put("nufus", nufus);
     }
-    if (dataBox.get("manastir")["adet"] < 1450)
-      isyanci = isyanci + nufus ~/ 100;
+    if (dataBox.get("manastir")["adet"] < 1450) isyanci = isyanci + nufus ~/ 100;
   }
 
   monthlyChanges() {
-    double satinAlimlar = (dataBox.get("ilac_alim") +
-            dataBox.get("kumas_alim") +
-            dataBox.get("yiyecek_alim")) *
-        dataBox.get("nufus");
+    double satinAlimlar =
+        (dataBox.get("ilac_alim") + dataBox.get("kumas_alim") + dataBox.get("yiyecek_alim")) * dataBox.get("nufus");
     List yapilar = [
       "atolye",
       "hastane",
@@ -166,50 +163,43 @@ class _HaritaState extends State<Harita> {
                     color: Color(0x476E87CB),
                     child: RotatedBox(
                       quarterTurns: 5,
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+                        SizedBox(height: 20),
+                        Wrap(
+                          alignment: WrapAlignment.spaceBetween,
                           children: [
-                            SizedBox(height: 20),
-                            Wrap(
-                              alignment: WrapAlignment.spaceBetween,
+                            AltAciklama(
+                              aciklanan: "Nüfus: " + box.get("nufus").toString(),
+                            ),
+                            AltAciklama(
+                              aciklanan: "Kasa: " + dataBox.get("para").toString(),
+                            ),
+                            AltAciklama(
+                              aciklanan: "Asker: " + box.get("aktif_sipahi").toString(),
+                            ),
+                            AltAciklama(
+                              aciklanan: "Muhafız: " + box.get("aktif_sovalye").toString(),
+                            ),
+                            AltAciklama(
+                              aciklanan: "İsyancı: " + box.get("isyanci").toString(),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                AltAciklama(
-                                  aciklanan:
-                                      "Nüfus: " + box.get("nufus").toString(),
-                                ),
-                                AltAciklama(
-                                  aciklanan:
-                                      "Kasa: " + dataBox.get("para").toString(),
-                                ),
-                                AltAciklama(
-                                  aciklanan: "Asker: " +
-                                      box.get("aktif_sipahi").toString(),
-                                ),
-                                AltAciklama(
-                                  aciklanan: "Muhafız: " +
-                                      box.get("aktif_sovalye").toString(),
-                                ),
-                                AltAciklama(
-                                  aciklanan: "İsyancı: " +
-                                      box.get("isyanci").toString(),
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    askerAlimButonu(),
-                                    GeriButonu(
-                                      AnaSayfa(),
-                                    ),
-                                  ],
+                                askerAlimButonu(),
+                                GeriButonu(
+                                  AnaSayfa(),
                                 ),
                               ],
                             ),
-                          ]),
+                          ],
+                        ),
+                      ]),
                     ),
                   ),
                 ),
                 Expanded(
-                  flex: 3,
+                  flex: 2,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -225,72 +215,63 @@ class _HaritaState extends State<Harita> {
                           color: Color(0x476E87CB),
                           child: RotatedBox(
                             quarterTurns: 5,
-                            child: Wrap(
-                                alignment: WrapAlignment.center,
-                                runSpacing: 5,
-                                spacing: 10,
+                            child: Wrap(alignment: WrapAlignment.center, runSpacing: 5, spacing: 10, children: [
+                              Container(
+                                child: StreamBuilder(
+                                  stream: dateStream,
+                                  builder: (context, snaphot) {
+                                    return Text(
+                                      "Day : " + DateFormat('yMd').format(box.get("date")),
+                                      style: TextStyle(color: Color(0xFFF3C195), fontSize: 20),
+                                    );
+                                  },
+                                ),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Container(
-                                    child: StreamBuilder(
-                                      stream: dateStream,
-                                      builder: (context, snaphot) {
-                                        return Text(
-                                          "Day : " +
-                                              DateFormat('yMd')
-                                                  .format(box.get("date")),
-                                          style: TextStyle(
-                                              color: Color(0xFFF3C195),
-                                              fontSize: 20),
-                                        );
-                                      },
-                                    ),
+                                  zamanButon(
+                                    Icon(Icons.pause_circle_outline),
                                   ),
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        zamanButon(
-                                          Icon(Icons.pause_circle_outline),
-                                        ),
-                                        zamanButon(
-                                          Icon(Icons
-                                              .play_circle_outline_outlined),
-                                        ),
-                                        zamanButon(
-                                          Icon(Icons.reply_all_outlined),
-                                        ),
-                                      ]),
-                                  YanButton(
-                                    sayfaCagirma: Insaat(
-                                      nerden: 'yapi',
-                                    ),
-                                    sayfaIsmi: 'İnsaat',
+                                  zamanButon(
+                                    Icon(Icons.play_circle_outline_outlined),
                                   ),
-                                  YanButton(
-                                    sayfaCagirma: Insaat(
-                                      nerden: 'sirket',
-                                    ),
-                                    sayfaIsmi: 'Mağaza',
+                                  zamanButon(
+                                    Icon(Icons.reply_all_outlined),
                                   ),
-                                  YanButton(
-                                    sayfaCagirma: Insaat(
-                                      nerden: 'sirket',
-                                    ),
-                                    sayfaIsmi: 'Şirketler',
-                                  ),
-                                  YanButton(
-                                    sayfaCagirma: Siralama(),
-                                    sayfaIsmi: 'Sıralamalar',
-                                  ),
-                                  YanButton(
-                                    sayfaCagirma: vergiSistemi(),
-                                    sayfaIsmi: 'Vergi',
-                                  ),
-                                  YanButton(
-                                    sayfaCagirma: AnaSayfa(),
-                                    sayfaIsmi: 'Etkiler',
-                                  ),
-                                ]),
+                                ],
+                              ),
+                              YanButton(
+                                sayfaCagirma: Insaat(
+                                  nerden: 'yapi',
+                                ),
+                                sayfaIsmi: 'İnsaat',
+                              ),
+                              YanButton(
+                                sayfaCagirma: Insaat(
+                                  nerden: 'sirket',
+                                ),
+                                sayfaIsmi: 'Mağaza',
+                              ),
+                              YanButton(
+                                sayfaCagirma: Insaat(
+                                  nerden: 'sirket',
+                                ),
+                                sayfaIsmi: 'Şirketler',
+                              ),
+                              YanButton(
+                                sayfaCagirma: Siralama(),
+                                sayfaIsmi: 'Sıralamalar',
+                              ),
+                              YanButton(
+                                sayfaCagirma: VergiSistemi(),
+                                sayfaIsmi: 'Vergi',
+                              ),
+                              YanButton(
+                                sayfaCagirma: AnaSayfa(),
+                                sayfaIsmi: 'Etkiler',
+                              ),
+                            ]),
                           ),
                         ),
                       ),
@@ -323,11 +304,13 @@ class YanButton extends StatelessWidget {
             ),
           ),
           child: Text(sayfaIsmi,
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold,)),
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+              )),
         ),
         onTap: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => sayfaCagirma));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => sayfaCagirma));
         });
   }
 }
@@ -343,12 +326,11 @@ class AltAciklama extends StatelessWidget {
         image: DecorationImage(
           fit: BoxFit.cover,
           image: AssetImage(
-            "assets/altbutonlar.png",
+            "assets/altButonlar.png",
           ),
         ),
       ),
-      child: Text(aciklanan,
-          style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+      child: Text(aciklanan, style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
     );
   }
 }

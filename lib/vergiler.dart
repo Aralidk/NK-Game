@@ -2,10 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:nkmanagetheworld/Widgetlar.dart';
-import 'package:nkmanagetheworld/anasayfa.dart';
 import 'package:nkmanagetheworld/oyunEkrani.dart';
 
-class vergiSistemi extends StatelessWidget {
+class VergiSistemi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
