@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="494affeb-fd1d-4434-98f9-405b71815502" name="Default Changelist" comment="Sıralamalar eklendi">
-      <change afterPath="$PROJECT_DIR$/assets/vergiButon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/oyunEkrani.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/oyunEkrani.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/vergiler.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/vergiler.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/gida_sirket.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/gida_sirket.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ilac_sirket.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/ilac_sirket.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/kumas_sirket.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/kumas_sirket.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +44,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/c_deneme" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
