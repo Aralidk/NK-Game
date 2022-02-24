@@ -133,7 +133,9 @@ class YapiController {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return AlertDialog(
+        return RotatedBox(quarterTurns: 5,
+        child: AlertDialog(
+          backgroundColor: Color(0xC7855914),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
           ),
@@ -141,28 +143,37 @@ class YapiController {
             height: 200,
             child: Column(
               children: [
-                Text(yapi.values.first + "inşaa edecekseniz emin misiniz ?"),
+                Text(yapi.values.first + " inşaa edecekseniz emin misiniz ?",
+                style: TextStyle(
+                  color: Colors.white
+                ),),
                 Row(
                   children: [
                     TextButton(
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      child: Text("Hayır"),
+                      child: Text("Hayır",
+                        style: TextStyle(
+                            color: Color(0xFFEFBB8B)
+                        ),),
                     ),
                     TextButton(
                       onPressed: () {
                         yapiInsaEt(yapi);
                         Navigator.pop(context);
                       },
-                      child: Text("Evet"),
+                      child: Text("Evet",
+                      style: TextStyle(
+                        color: Color(0xFFF3C195)
+                      ),),
                     ),
                   ],
                 ),
               ],
             ),
           ),
-        );
+        ));
       },
     );
   }

@@ -35,11 +35,12 @@ class AnaSayfa extends StatelessWidget {
 class UstKutu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final screen = MediaQuery.of(context).size;
     return
         Container(
-          margin: EdgeInsets.only(top: 550),
+          margin: EdgeInsets.only(top: screen.height/1.2),
           child: Row(
-            children: [
+            children:[
               Expanded(child: butonlar(
                   sayfalar: ayarlar(),
                   anaSayfaButon:"assets/2.png")),
@@ -55,7 +56,8 @@ class UstKutu extends StatelessWidget {
               )
             ],
           ),
-        );
+
+                );
   }
 }
 

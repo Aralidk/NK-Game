@@ -88,15 +88,4 @@ class _zamanButonState extends State<zamanButon> {
   }
 }
 
-class askerAlimButonu extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return  IconButton(
-      onPressed: () {},
-      alignment: Alignment.center,
-      icon: Icon(Icons.add_circle_outline),
-      color: Color(0xFFF3C195),
-    );
-  }
-}
 
