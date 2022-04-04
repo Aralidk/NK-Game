@@ -1,5 +1,6 @@
 # NK-Game
 Flutter Game
+https://play.google.com/store/apps/details?id=my.newkingdom
 
 
 ![1640207135300](https://user-images.githubusercontent.com/69721692/158557643-044ea9d3-5b8f-4828-b158-45b1bd5450cb.jpg)
